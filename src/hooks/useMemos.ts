@@ -5,9 +5,10 @@ import { v4 as uuidv4 } from 'uuid'
 import { Memo, MemoFormData } from '@/types/memo'
 import { supabase } from '@/lib/supabaseClient'
 import { migrateLocalStorageToSupabase } from '@/utils/migration'
+import { Database } from '@/types/supabase'
 
 // Supabase 데이터베이스 형식(snake_case)을 앱 형식(camelCase)으로 변환
-const mapSupabaseToMemo = (row: any): Memo => ({
+const mapSupabaseToMemo = (row: Database['public']['Tables']['memos']['Row']): Memo => ({
   id: row.id,
   title: row.title,
   content: row.content,

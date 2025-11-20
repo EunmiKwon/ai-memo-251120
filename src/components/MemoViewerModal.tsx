@@ -63,7 +63,7 @@ export default function MemoViewerModal({
 
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [isOpen, onClose])
+  }, [isOpen, onClose, memo.aiSummary])
 
   const handleSummarize = async () => {
     setIsSummarizing(true)

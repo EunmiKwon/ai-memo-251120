@@ -57,7 +57,7 @@ ${content}
           console.log('Attempting to save summary to Supabase for memo:', memoId)
           const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey)
           
-          const { error: updateError, data, count } = await supabase
+          const { error: updateError, data } = await supabase
             .from('memos')
             .update({ ai_summary: summary })
             .eq('id', memoId)
